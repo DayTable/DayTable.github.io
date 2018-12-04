@@ -135,7 +135,7 @@
 <meta property="og:site_name" content="惬意">
 <meta property="og:description" content="hibernate 简介hibernate是一个开源框架，它是对象关联关系映射的框架，它对JDBC做了轻量级的封装，使java程序员可以使用面向对象的思想来操纵数据库。 hibernate核心接口  session：负责被持久化对象CRUD操作 sessionFactory:负责初始化hibernate，创建session对象 configuration:负责配置并启动hibernate，创建Se">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T05:31:14.173Z">
+<meta property="og:updated_time" content="2018-12-04T05:43:44.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hibernate简介">
 <meta name="twitter:description" content="hibernate 简介hibernate是一个开源框架，它是对象关联关系映射的框架，它对JDBC做了轻量级的封装，使java程序员可以使用面向对象的思想来操纵数据库。 hibernate核心接口  session：负责被持久化对象CRUD操作 sessionFactory:负责初始化hibernate，创建session对象 configuration:负责配置并启动hibernate，创建Se">
@@ -636,7 +636,60 @@ extra   在集合数据懒加载时候提升效率，在真正使用数据的时
 <p><strong>7.@Transient</strong><br>可选<br>@Transient表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性.<br>如果一个属性并非数据库表的字段映射,就务必将其标示为@Transient,否则,ORM框架默认其注解为@Basic<br>示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//根据birth计算出age属性</span><br><span class="line">@Transient</span><br><span class="line">public int getAge() &#123;</span><br><span class="line">    return getYear(new Date()) – getYear(birth);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>8.@ManyToOne(fetch=FetchType,cascade=CascadeType)</strong><br>可选<br>@ManyToOne表示一个多对一的映射,该注解标注的属性通常是数据库表的外键<br><strong>optional:</strong>是否允许该字段为null,该属性应该根据数据库表的外键约束来确定,默认为true<br><strong>fetch:</strong>表示抓取策略,默认为FetchType.EAGER<br><strong>cascade:</strong>表示默认的级联操作策略,可以指定为ALL,PERSIST,MERGE,REFRESH和REMOVE中的若干组合,默认为无级联操作<br><strong>targetEntity:</strong>表示该属性关联的实体类型.该属性通常不必指定,ORM框架根据属性类型自动判断targetEntity.<br>示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//订单Order和用户User是一个ManyToOne的关系</span><br><span class="line">//在Order类中定义</span><br><span class="line">@ManyToOne()</span><br><span class="line">@JoinColumn(name=”USER”)</span><br><span class="line">public User getUser() &#123;</span><br><span class="line">    return user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>9.@JoinColumn</strong><br>可选<br>@JoinColumn和@Column类似,介量描述的不是一个简单字段,而一一个关联字段,例如.描述一个@ManyToOne的字段.<br>name:该字段的名称.由于@JoinColumn描述的是一个关联字段,如ManyToOne,则默认的名称由其关联的实体决定.<br>例如,实体Order有一个user属性来关联实体User,则Order的user属性为一个外键,<br>其默认的名称为实体User的名称+下划线+实体User的主键名称<br>示例:<br>见@ManyToOne<br>@OneToMany(fetch=FetchType,cascade=CascadeType)<br>可选<br>10.@OneToMany描述一个一对多的关联,该属性应该为集体类型,在数据库中并没有实际字段.<br>fetch:表示抓取策略,默认为FetchType.LAZY,因为关联的多个对象通常不必从数据库预先读取到内存<br>cascade:表示级联操作策略,对于OneToMany类型的关联非常重要,通常该实体更新或删除时,其关联的实体也应当被更新或删除<br>例如:实体User和Order是OneToMany的关系,则实体User被删除时,其关联的实体Order也应该被全部删除<br>示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@OneTyMany(cascade=ALL)</span><br><span class="line">public List getOrders() &#123;</span><br><span class="line">    return orders;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Hibernate验证注解"><a href="#Hibernate验证注解" class="headerlink" title="Hibernate验证注解"></a>Hibernate验证注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">注解        适用类型      说明                           示例</span><br><span class="line">@Pattern    String        通过正则表达式来验证字符串     @Pattern(regex=”[a-z]&#123;6&#125;”)</span><br><span class="line">@Length     String        验证字符串的长度              @length(min=3,max=20)</span><br><span class="line">@Email      String        验证一个Email地址是否有效      @email</span><br><span class="line">@Range      Long          验证一个整型是否在有效的范围内  @Range(min=0,max=100)</span><br><span class="line">@Min        Long          验证一个整型必须不小于指定值    @Min(value=10)</span><br><span class="line">@Max        Long          验证一个整型必须不大于指定值    @Max(value=20)</span><br><span class="line">@Size       集合或数组    集合或数组的大小是否在指定范围内 @Size(min=1,max=255)</span><br></pre></td></tr></table></figure>
+<h3 id="Hibernate验证注解"><a href="#Hibernate验证注解" class="headerlink" title="Hibernate验证注解"></a>Hibernate验证注解</h3><table>
+<thead>
+<tr>
+<th>注解</th>
+<th style="text-align:left">适用类型</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Pattern</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">通过正则表达式来验证字符串</td>
+<td style="text-align:left">@Pattern(regex=”[a-z]{6}”)</td>
+</tr>
+<tr>
+<td>@Length</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">验证字符串的长度</td>
+<td style="text-align:left">@length(min=3,max=20)</td>
+</tr>
+<tr>
+<td>@Email</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">验证一个Email地址是否有效</td>
+<td style="text-align:left">@email</td>
+</tr>
+<tr>
+<td>@Range</td>
+<td style="text-align:left">Long</td>
+<td style="text-align:left">验证一个整型是否在有效的范围内</td>
+<td style="text-align:left">@Range(min=0,max=100)</td>
+</tr>
+<tr>
+<td>@Min</td>
+<td style="text-align:left">Long</td>
+<td style="text-align:left">验证一个整型必须不小于指定值</td>
+<td style="text-align:left">@Min(value=10)</td>
+</tr>
+<tr>
+<td>@Max</td>
+<td style="text-align:left">Long</td>
+<td style="text-align:left">验证一个整型必须不大于指定值</td>
+<td style="text-align:left">@Max(value=20)</td>
+</tr>
+<tr>
+<td>@Size</td>
+<td style="text-align:left">集合或数组</td>
+<td style="text-align:left">集合或数组的大小是否在指定范围内</td>
+<td style="text-align:left">@Size(min=1,max=255)</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
