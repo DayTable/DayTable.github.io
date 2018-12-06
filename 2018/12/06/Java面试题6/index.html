@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "944bfca5"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/i_766px_1152407_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/i_32px_1152407_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/i_16px_1152407_easyicon.net.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/i_1152407_easyicon.net.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="惬意" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Java面试题651.HashMap的实现原理1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950HashMap的主干是一个Entry数组。Entry是HashMap的基本组成单元，每一个Entry包含一个key-value键值对。HashMap基于hashing原理，">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试题6">
+<meta property="og:url" content="https://daytable.github.io/2018/12/06/Java面试题6/index.html">
+<meta property="og:site_name" content="惬意">
+<meta property="og:description" content="Java面试题651.HashMap的实现原理1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950HashMap的主干是一个Entry数组。Entry是HashMap的基本组成单元，每一个Entry包含一个key-value键值对。HashMap基于hashing原理，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-06T05:51:36.943Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java面试题6">
+<meta name="twitter:description" content="Java面试题651.HashMap的实现原理1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950HashMap的主干是一个Entry数组。Entry是HashMap的基本组成单元，每一个Entry包含一个key-value键值对。HashMap基于hashing原理，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '123456',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 想关的内容","hits_stats":"${hits} 条记录,共耗时 ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://daytable.github.io/2018/12/06/Java面试题6/">
+
+
+
+
+
+  <title>Java面试题6 | 惬意</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://daytable.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">惬意</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Don't let your dreams just be dreams</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+    
+  
+  
+
+  <article class="post post-type-normal true" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://daytable.github.io/2018/12/06/Java面试题6/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="惬意">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/of4fhv-f79.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="惬意">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java面试题6</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T13:47:30+08:00">
+                2018-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">Java面试题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/06/Java面试题6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/06/Java面试题6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+		  
+		  
+		  
+		  
+		  
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Java面试题6"><a href="#Java面试题6" class="headerlink" title="Java面试题6"></a>Java面试题6</h3><h5 id="51-HashMap的实现原理"><a href="#51-HashMap的实现原理" class="headerlink" title="51.HashMap的实现原理"></a>51.HashMap的实现原理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">HashMap的主干是一个Entry数组。</span><br><span class="line">Entry是HashMap的基本组成单元，</span><br><span class="line">每一个Entry包含一个key-value键值对。</span><br><span class="line"></span><br><span class="line">HashMap基于hashing原理，</span><br><span class="line">我们通过put()和get()方法储存和获取对象。</span><br><span class="line">当我们将键值对传递给put()方法时，</span><br><span class="line">它调用键对象的hashCode()方法</span><br><span class="line">来计算hashcode，</span><br><span class="line">让后找到bucket位置来储存值对象。</span><br><span class="line">当获取对象时，</span><br><span class="line">通过键对象的equals()方法</span><br><span class="line">找到正确的键值对，</span><br><span class="line">然后返回值对象。</span><br><span class="line">HashMap使用链表来解决碰撞问题，</span><br><span class="line">当发生碰撞了，</span><br><span class="line">对象将会储存在链表的下一个节点中。</span><br><span class="line"> HashMap在每个链表节点中储存键值对对象。</span><br><span class="line"></span><br><span class="line">当两个不同的键对象的hashcode</span><br><span class="line">相同时会发生什么？ </span><br><span class="line">它们会储存在同一个bucket位置的链表中。</span><br><span class="line">键对象的equals()方法用来找到键值对。</span><br><span class="line"></span><br><span class="line">因为HashMap的好处非常多，</span><br><span class="line">我曾经在电子商务的应用中使用HashMap作为缓存。</span><br><span class="line">因为金融领域非常多的运用Java，</span><br><span class="line">也出于性能的考虑，</span><br><span class="line">我们会经常用到HashMap和ConcurrentHashMap。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HashMap由数组+链表组成的，</span><br><span class="line">数组是HashMap的主体，</span><br><span class="line">链表则是主要为了解决哈希冲突而存在的，</span><br><span class="line">如果定位到的数组位置不含链表</span><br><span class="line">当前entry的next指向null,</span><br><span class="line">那么对于查找，</span><br><span class="line">添加等操作很快，</span><br><span class="line">仅需一次寻址即可；</span><br><span class="line">如果定位到的数组包含链表，</span><br><span class="line">对于添加操作，</span><br><span class="line">其时间复杂度为O(n)，</span><br><span class="line">首先遍历链表，</span><br><span class="line">存在即覆盖，</span><br><span class="line">否则新增；</span><br><span class="line">对于查找操作来讲，</span><br><span class="line">仍需遍历链表，</span><br><span class="line">然后通过key对象的equals方法逐一比对查找。</span><br><span class="line">所以，性能考虑，HashMap中的链表出现越少，</span><br><span class="line">性能才会越好。</span><br></pre></td></tr></table></figure>
+<h5 id="52-List、Set、Map之间的区别"><a href="#52-List、Set、Map之间的区别" class="headerlink" title="52.List、Set、Map之间的区别"></a>52.List、Set、Map之间的区别</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">List、Set是实现了Collection接口的子接口；</span><br><span class="line">而Map是另一个集合接口。1元素重复性：</span><br><span class="line"> List允许有重复的元素。</span><br><span class="line">任何数量的重复元素</span><br><span class="line">都可以在不影响现有重复元素的值</span><br><span class="line">及其索引的情况下插入到List集合中；</span><br><span class="line">Set集合不允许元素重复。</span><br><span class="line">Set以及所有实现了Set接口的类</span><br><span class="line">都不允许重复值的插入，</span><br><span class="line">若多次插入同一个元素时，</span><br><span class="line">在该集合中只显示一个；</span><br><span class="line">Map以键值对的形式对元素进行存储。</span><br><span class="line">Map不允许有重复键，</span><br><span class="line">但允许有不同键对应的重复的值；</span><br><span class="line">2.元素的有序性：</span><br><span class="line"></span><br><span class="line">List及其所有实现类保持了</span><br><span class="line">每个元素的插入顺序；</span><br><span class="line">Set中的元素都是无序的；</span><br><span class="line">但是某些Set的实现类</span><br><span class="line">以某种殊形式对其中的元素进行排序，</span><br><span class="line">如：LinkedHashSet按照元素的</span><br><span class="line">插入顺序进行排序；</span><br><span class="line">Map跟Set一样对元素进行无序存储，</span><br><span class="line">但其某些实现类对元素进行了排序。</span><br><span class="line">如：TreeMap根据键对其中的元素进行升序排序；</span><br><span class="line">3.元素是否为空值：</span><br><span class="line">1.List允许任意数量的空值；</span><br><span class="line">2.Set最多允许一个空值的出现；</span><br><span class="line">当向Set集合中添加多个null值时，</span><br><span class="line">在该Set集合中只会显示一个null元素</span><br><span class="line">3.Map只允许出现一个空键，</span><br><span class="line">但允许出现任意数量的空值；</span><br><span class="line">---------------------------------</span><br><span class="line">总结： </span><br><span class="line">List中的元素:</span><br><span class="line">有序、可重复、可为空；Set中的元素:</span><br><span class="line">无序、不重复、只有一个空元素；Map中的元素:</span><br><span class="line">无序、键不重，值可重、可一个空键、多可空值；</span><br></pre></td></tr></table></figure>
+<h5 id="53-HashMap-的长度为什么是2的幂次方"><a href="#53-HashMap-的长度为什么是2的幂次方" class="headerlink" title="53.HashMap 的长度为什么是2的幂次方"></a>53.HashMap 的长度为什么是2的幂次方</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">1.减小哈希冲突概率 </span><br><span class="line">假如当前Entry数组长度为len，</span><br><span class="line">插入节点时，</span><br><span class="line">需要对key的hashcode进行二次哈希，</span><br><span class="line">然后跟len-1相与</span><br><span class="line">得到的值一定小于len，避免数组越界</span><br><span class="line"></span><br><span class="line">如果len是2的N次方，</span><br><span class="line">那么len-1的后N位二进制一定是全1</span><br><span class="line"></span><br><span class="line">假设有两个key，</span><br><span class="line">他们的hashcode不同，</span><br><span class="line">分别为code1和code2 </span><br><span class="line">code1和code2分别与一个后N位全1的二进制相与，</span><br><span class="line">结果一定也不同 </span><br><span class="line">但是，如果code1和code2分别</span><br><span class="line">与一个后N位非全1的二进制相与，</span><br><span class="line">结果有可能相同</span><br><span class="line"></span><br><span class="line">也就是说，</span><br><span class="line">如果len是2^N，</span><br><span class="line">不同hashcode的key</span><br><span class="line">计算出来的数组下标一定不同； </span><br><span class="line">否则，</span><br><span class="line">不同hashcode的key</span><br><span class="line">计算出来的数组下标一定相同。</span><br><span class="line"></span><br><span class="line">所以HashMap长度为全1，</span><br><span class="line">可以减小哈希冲突概率。</span><br><span class="line">----------------------</span><br><span class="line">2.提高计算下标的效率 </span><br><span class="line">如果len的二进制后n位非全1，</span><br><span class="line">与len-1相与时，</span><br><span class="line">0与1相与需要取反。 </span><br><span class="line">如果len的二进制后n位全1，</span><br><span class="line">完全不需要取反。</span><br><span class="line"></span><br><span class="line">如果len为2^N，</span><br><span class="line">那么与len-1相与，</span><br><span class="line">跟取余len等价，</span><br><span class="line">而与运算效率高于取余。 </span><br><span class="line">如果len不是2^N，</span><br><span class="line">与len-1相与，</span><br><span class="line">跟取余len不等价。</span><br></pre></td></tr></table></figure>
+<h5 id="54-集合框架中的泛型有什么优点？"><a href="#54-集合框架中的泛型有什么优点？" class="headerlink" title="54.集合框架中的泛型有什么优点？"></a>54.集合框架中的泛型有什么优点？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">首先，</span><br><span class="line">了解一下Java关于泛型的概念。</span><br><span class="line">泛型，在C++中被称为模板，</span><br><span class="line">就是一种抽象的编程方式。</span><br><span class="line">当我们定义类和方法的时候，</span><br><span class="line">可以用一种通用的方式进行定义，</span><br><span class="line">而不必写出具体的类，</span><br><span class="line">这些未知的东西会在真正使用的时候在确定。</span><br><span class="line"></span><br><span class="line">对于集合类来说，</span><br><span class="line">它们可以存放各种类型的元素。</span><br><span class="line">如果在存放之前，</span><br><span class="line">就能确定元素的类型，</span><br><span class="line">那么就可以更加直观，</span><br><span class="line">也让代码更加简洁。</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">java的泛型是停留在编译层的，</span><br><span class="line">也就是说JVM在对待泛型数据的时候，</span><br><span class="line">依然会把它们看成是Object类型，</span><br><span class="line">只不过在使用这些元素的时候，</span><br><span class="line">JVM会自动帮助我们进行相应的类型转换。</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">集合使用泛型之后，</span><br><span class="line">可以达到元素类型明确的目的，</span><br><span class="line">避免了手动类型转换的过程，</span><br><span class="line">同时，也让我们更加明确</span><br><span class="line">容器保存的是什么类型的数据。</span><br></pre></td></tr></table></figure>
+<h5 id="55-我们能否使用任何类作为Map的key？"><a href="#55-我们能否使用任何类作为Map的key？" class="headerlink" title="55.我们能否使用任何类作为Map的key？"></a>55.我们能否使用任何类作为Map的key？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1、可以 </span><br><span class="line">但是做为key的数据有如下要求：</span><br><span class="line">2、首先，</span><br><span class="line">要求明确一点Map集合存储数据的</span><br><span class="line">主要目的是为了查找 </span><br><span class="line">而List集合是为了输出</span><br><span class="line">3、既然是查找那么就要涉及到对象比较 </span><br><span class="line">我们说了如果要进行对象比较</span><br><span class="line">就必须覆写Object类中的equals()、hasCode() </span><br><span class="line">至少覆写equals()方法 简单理解：</span><br><span class="line">自己定义的类如果要想实现对象比较</span><br><span class="line">就必须至少覆写equals()方法</span><br><span class="line">4、或则这么说只要是自己定义的类</span><br><span class="line">要想将其作为key </span><br><span class="line">就必须覆写equals()方法</span><br><span class="line">5、实际工作中 key的类型一定是String型 </span><br><span class="line">(95%通用) 其余的5%是没事找事的</span><br><span class="line">6、按标准开发、你会感到事半功倍，</span><br><span class="line">不要没事给自己找事，</span><br><span class="line">当然求知精神是值得肯定的。</span><br></pre></td></tr></table></figure>
+<h5 id="56-Map接口提供了哪些不同的集合视图？"><a href="#56-Map接口提供了哪些不同的集合视图？" class="headerlink" title="56.Map接口提供了哪些不同的集合视图？"></a>56.Map接口提供了哪些不同的集合视图？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Map接口提供了三个集合视图：</span><br><span class="line">1.Set keyset()：</span><br><span class="line">返回map中包含的所有key的一个Set视图。</span><br><span class="line">集合是受map支持的，</span><br><span class="line">map的变化会在集合中反映出来，</span><br><span class="line">反之亦然。</span><br><span class="line">当一个迭代器正在遍历一个集合时，</span><br><span class="line">若map被修改了(除迭代器自身的移除操作以外)，</span><br><span class="line">迭代器的结果会变为未定义。</span><br><span class="line">集合支持通过</span><br><span class="line">Iterator的Remove、Set.remove、</span><br><span class="line">removeAll、</span><br><span class="line">retainAll和clear操作进行元素移除，</span><br><span class="line">从map中移除对应的映射。</span><br><span class="line">它不支持add和addAll操作。</span><br><span class="line">2.Collection values()：</span><br><span class="line">返回一个map中包含的</span><br><span class="line">所有value的一个Collection视图。</span><br><span class="line">这个collection受map支持的，</span><br><span class="line">map的变化会在collection中反映出来，</span><br><span class="line">反之亦然。</span><br><span class="line">当一个迭代器正在遍历一个collection时，</span><br><span class="line">若map被修改了(除迭代器自身的移除操作以外)，</span><br><span class="line">迭代器的结果会变为未定义。</span><br><span class="line">集合支持通过</span><br><span class="line">Iterator的Remove、Set.remove、</span><br><span class="line">removeAll、</span><br><span class="line">retainAll和clear操作进行元素移除，</span><br><span class="line">从map中移除对应的映射。</span><br><span class="line"></span><br><span class="line">它不支持add和addAll操作。</span><br><span class="line">3.Set&gt; entrySet()：</span><br><span class="line">返回一个map钟包含的</span><br><span class="line">所有映射的一个集合视图。</span><br><span class="line">这个集合受map支持的，</span><br><span class="line">map的变化会在collection中反映出来，</span><br><span class="line">反之亦然。</span><br><span class="line">当一个迭代器正在遍历一个集合时，</span><br><span class="line">若map被修改了</span><br><span class="line">除迭代器自身的移除操作，</span><br><span class="line">以及对迭代器返回的entry进行setValue外，</span><br><span class="line">迭代器的结果会变为未定义。</span><br><span class="line">集合支持通过</span><br><span class="line">Iterator的Remove、Set.remove、</span><br><span class="line">removeAll、</span><br><span class="line">retainAll和clear操作进行元素移除，</span><br><span class="line">从map中移除对应的映射。</span><br><span class="line">它不支持add和addAll操作。</span><br></pre></td></tr></table></figure>
+<h5 id="57-哪些集合类是线程安全的？"><a href="#57-哪些集合类是线程安全的？" class="headerlink" title="57.哪些集合类是线程安全的？"></a>57.哪些集合类是线程安全的？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">在集合框架中，有些类是线程安全的，</span><br><span class="line">这些都是jdk1.1中的出现的。</span><br><span class="line">在jdk1.2之后，</span><br><span class="line">就出现许许多多非线程安全的类。</span><br><span class="line">下面是这些线程安全的同步的类：vector：</span><br><span class="line">就比arraylist多了个同步化机制（线程安全），</span><br><span class="line">因为效率较低，</span><br><span class="line">现在已经不太建议使用。</span><br><span class="line">在web应用中，</span><br><span class="line">特别是前台页面，</span><br><span class="line">往往效率（页面响应速度）是优先考虑的。</span><br><span class="line">statck：堆栈类，先进后出</span><br><span class="line">hashtable：就比hashmap多了个线程安全</span><br><span class="line">enumeration：枚举，相当于迭代器</span><br><span class="line"></span><br><span class="line">除了这些之外，</span><br><span class="line">其他的都是非线程安全的类和接口。</span><br><span class="line"></span><br><span class="line">线程安全的类其方法是同步的，</span><br><span class="line">每次只能一个访问。</span><br><span class="line">是重量级对象，</span><br><span class="line">效率较低。</span><br></pre></td></tr></table></figure>
+<h5 id="58-队列和栈是什么，列出它们的区别？"><a href="#58-队列和栈是什么，列出它们的区别？" class="headerlink" title="58.队列和栈是什么，列出它们的区别？"></a>58.队列和栈是什么，列出它们的区别？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">队列（Queue）：</span><br><span class="line">是限定只能在表的一端进行</span><br><span class="line">插入和在另一端进行删除操作的线性表；</span><br><span class="line"></span><br><span class="line">栈（Stack）：</span><br><span class="line">是限定只能在表的一端</span><br><span class="line">进行插入和删除操作的线性表。</span><br><span class="line"></span><br><span class="line">区别如下：</span><br><span class="line">一、规则不同</span><br><span class="line">1. 队列：先进先出（First In First Out）FIFO</span><br><span class="line">2. 栈：先进后出（First In Last Out ）FILO</span><br><span class="line"></span><br><span class="line">二、对插入和删除操作的限定不同</span><br><span class="line">1. 队列：只能在表的一端进行插入，</span><br><span class="line">并在表的另一端进行删除；</span><br><span class="line">2. 栈：只能在表的一端插入和删除。</span><br><span class="line"></span><br><span class="line">三、遍历数据速度不同</span><br><span class="line"> 1. 队列：基于地址指针进行遍历，</span><br><span class="line">而且可以从头部或者尾部进行遍历，</span><br><span class="line">但不能同时遍历，</span><br><span class="line">无需开辟空间，</span><br><span class="line">因为在遍历的过程中不影响数据结构，</span><br><span class="line">所以遍历速度要快；</span><br><span class="line"></span><br><span class="line"> 2. 栈：只能从顶部取数据，</span><br><span class="line">也就是说最先进入栈底的，</span><br><span class="line">需要遍历整个栈才能取出来，</span><br><span class="line">而且在遍历数据的同时需要</span><br><span class="line">为数据开辟临时空间，</span><br><span class="line">保持数据在遍历前的一致性。</span><br></pre></td></tr></table></figure>
+<h5 id="59-哪一个List实现了最快插入？"><a href="#59-哪一个List实现了最快插入？" class="headerlink" title="59.哪一个List实现了最快插入？"></a>59.哪一个List实现了最快插入？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">LinkedList和ArrayList</span><br><span class="line">是另个不同变量列表的实现。</span><br><span class="line">ArrayList的优势在于动态的增长数组，</span><br><span class="line">非常适合初始时总长度未知的情况下使用。</span><br><span class="line">LinkedList的优势在于在中间位置插入和删除操作，</span><br><span class="line">速度是最快的。</span><br><span class="line"></span><br><span class="line">LinkedList实现了List接口，</span><br><span class="line">允许null元素。</span><br><span class="line">此外LinkedList提供额外的</span><br><span class="line">get，remove，insert方法</span><br><span class="line">在LinkedList的首部或尾部。</span><br><span class="line">这些操作使LinkedList可被</span><br><span class="line">用作堆栈（stack），</span><br><span class="line">队列（queue）</span><br><span class="line">或双向队列（deque）。</span><br><span class="line"></span><br><span class="line">ArrayList实现了可变大小的数组。</span><br><span class="line">它允许所有元素，</span><br><span class="line">包括null。 </span><br><span class="line">每个ArrayList实例都有一个容量（Capacity），</span><br><span class="line">即用于存储元素的数组的大小。</span><br><span class="line">这个容量可随着不断添加新元素而自动增加，</span><br><span class="line">但是增长算法并没有定义。</span><br><span class="line">当需要插入大量元素时，</span><br><span class="line">在插入前可以调用ensureCapacity方法来</span><br><span class="line">增加ArrayList的容量以提高插入效率。</span><br></pre></td></tr></table></figure>
+<h5 id="60-什么时候使用ConcurrentHashMap？"><a href="#60-什么时候使用ConcurrentHashMap？" class="headerlink" title="60.什么时候使用ConcurrentHashMap？"></a>60.什么时候使用ConcurrentHashMap？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">快速失败的Java迭代器</span><br><span class="line">可能会引发ConcurrentModifcationException</span><br><span class="line">在底层集合迭代过程中被修改。</span><br><span class="line">故障安全作为发生在实例中的一个副本</span><br><span class="line">迭代是不会抛出任何异常的。</span><br><span class="line">快速失败的故障安全范例定义了</span><br><span class="line">当遭遇故障时系统是如何反应的。</span><br><span class="line">例如，用于失败的快速迭代器ArrayList</span><br><span class="line">和用于故障安全的迭代器ConcurrentHashMap。</span><br><span class="line"></span><br><span class="line">ConcurrentHashMap被作为</span><br><span class="line">故障安全迭代器的一个实例，</span><br><span class="line">它允许完整的并发检索和更新。</span><br><span class="line">当有大量的并发更新时，</span><br><span class="line">ConcurrentHashMap此时可以被使用。</span><br><span class="line">这非常类似于Hashtable，</span><br><span class="line">但ConcurrentHashMap不锁定</span><br><span class="line">整个表来提供并发，</span><br><span class="line">所以从这点上ConcurrentHashMap的性能</span><br><span class="line">似乎更好一些。</span><br><span class="line">所以当有大量更新时</span><br><span class="line">ConcurrentHashMap应该被使用。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+	
+
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    惬意
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://daytable.github.io/2018/12/06/Java面试题6/" title="Java面试题6">https://daytable.github.io/2018/12/06/Java面试题6/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+	
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+
+    <footer class="post-footer">
+	
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+	  
+	  
+	  
+	  
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/05/Java面试题5/" rel="next" title="Java面试题5">
+                <i class="fa fa-chevron-left"></i> Java面试题5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+ 
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/of4fhv-f79.jpg" alt="惬意">
+            
+              <p class="site-author-name" itemprop="name">惬意</p>
+              <p class="site-description motion-element" itemprop="description">Don't let your dreams just be dreams</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/DayTable" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5753731007" target="_blank" title="WeiBo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>WeiBo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java面试题6"><span class="nav-number">1.</span> <span class="nav-text">Java面试题6</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#51-HashMap的实现原理"><span class="nav-number">1.0.1.</span> <span class="nav-text">51.HashMap的实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#52-List、Set、Map之间的区别"><span class="nav-number">1.0.2.</span> <span class="nav-text">52.List、Set、Map之间的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#53-HashMap-的长度为什么是2的幂次方"><span class="nav-number">1.0.3.</span> <span class="nav-text">53.HashMap 的长度为什么是2的幂次方</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#54-集合框架中的泛型有什么优点？"><span class="nav-number">1.0.4.</span> <span class="nav-text">54.集合框架中的泛型有什么优点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#55-我们能否使用任何类作为Map的key？"><span class="nav-number">1.0.5.</span> <span class="nav-text">55.我们能否使用任何类作为Map的key？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#56-Map接口提供了哪些不同的集合视图？"><span class="nav-number">1.0.6.</span> <span class="nav-text">56.Map接口提供了哪些不同的集合视图？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#57-哪些集合类是线程安全的？"><span class="nav-number">1.0.7.</span> <span class="nav-text">57.哪些集合类是线程安全的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#58-队列和栈是什么，列出它们的区别？"><span class="nav-number">1.0.8.</span> <span class="nav-text">58.队列和栈是什么，列出它们的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#59-哪一个List实现了最快插入？"><span class="nav-number">1.0.9.</span> <span class="nav-text">59.哪一个List实现了最快插入？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#60-什么时候使用ConcurrentHashMap？"><span class="nav-number">1.0.10.</span> <span class="nav-text">60.什么时候使用ConcurrentHashMap？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+	
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">惬意</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/DayTable">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'xTX2qUT5GTx5Ld46FnNiz79q-gzGzoHsz',
+        appKey: 'SMnwFSQ8h5MSBDljbs9kbwv6',
+        placeholder: '兄dei,来了不说两句么 一起快活啊',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--音乐实现
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+-->
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
