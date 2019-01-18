@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[190118]]></title>
-    <url>%2F2019%2F01%2F18%2F190118%E5%B0%8F%E8%AE%B0%2F</url>
+    <url>%2F2019%2F01%2F18%2FSERVER12%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[123456789server2012服务器的安装出现的问题:.NET Framework 功能安装失败百度了一下好像是缺少相对应的镜像文件①:下载相对应的源文件 进行解压安装②:联网安装 推荐进行联网安装 (本人联网安装成功)当然也不排除其他一些解决方法(百度了一下方法很多)貌似server08没有这个问题 不联网的话好像也可以安装成功第一次安装server12的就只有这一个问题 一直失败 插入网线之后一次成功]]></content>
       <categories>
         <category>server服务器问题</category>
