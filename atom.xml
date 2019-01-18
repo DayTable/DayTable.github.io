@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://daytable.github.io/"/>
-  <updated>2019-01-18T11:33:18.317Z</updated>
+  <updated>2019-01-18T11:52:49.145Z</updated>
   <id>https://daytable.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>190118</title>
+    <title>SERVER12服务器问题小记</title>
     <link href="https://daytable.github.io/2019/01/18/SERVER12%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/"/>
     <id>https://daytable.github.io/2019/01/18/SERVER12服务器问题小记/</id>
     <published>2019-01-18T10:57:56.000Z</published>
-    <updated>2019-01-18T11:33:18.317Z</updated>
+    <updated>2019-01-18T11:52:49.145Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server2012服务器的安装出现的问题:</span><br><span class="line">.NET Framework 功能安装失败</span><br><span class="line">百度了一下好像是缺少相对应的镜像文件</span><br><span class="line">①:下载相对应的源文件 进行解压安装</span><br><span class="line">②:联网安装 </span><br><span class="line">推荐进行联网安装  (本人联网安装成功)</span><br><span class="line">当然也不排除其他一些解决方法(百度了一下方法很多)</span><br><span class="line">貌似server08没有这个问题 不联网的话好像也可以安装成功</span><br><span class="line">第一次安装server12的就只有这一个问题 一直失败 插入网线之后一次成功</span><br></pre></td></tr></table></figure>]]></content>
     
